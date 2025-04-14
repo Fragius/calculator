@@ -74,7 +74,7 @@ function evaluateInOrder(expression) { //: division is multiplication
 
 function evaluate(expression) {
     const expressionArr = turnStrExpressionToArr(expression);
-    return evaluateInOrder(expressionArr)[0] //Evaluate in the order of division, and multiplication then addition, and subtraction
+    return evaluateInOrder(expressionArr)[0].toFixed(3); //Evaluate in the order of division, and multiplication then addition, and subtraction
 }
 
 function addToDisplay(element) {
