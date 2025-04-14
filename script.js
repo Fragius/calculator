@@ -96,7 +96,10 @@ numButtons.forEach(btn => btn.addEventListener("click", () => {
     }
     addToDisplay(btn);
 }));
-operandButtons.forEach(btn => btn.addEventListener("click", () => addToDisplay(btn)));
+operandButtons.forEach(btn => btn.addEventListener("click", () => {
+    addToDisplay(btn);
+    num1IsAns = false;
+}));
 
 document.querySelector(".clear").addEventListener("click", () => {
     display.textContent = "";
