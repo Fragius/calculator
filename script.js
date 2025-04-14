@@ -1,3 +1,7 @@
+const numButtons = Array.from(document.querySelectorAll(".num-button"));
+const operandButtons = Array.from(document.querySelectorAll(".operation-btn"));
+const display = document.querySelector(".display");
+
 const TEXT_TO_FUNCTION = {
     "+": add,
     "-": subtract,
@@ -68,4 +72,18 @@ function evaluate(expression) {
     return evaluateInOrder(expressionArr)[0] //Evaluate in the order of division, and multiplication then addition, and subtraction
 }
 
-console.log(evaluate("1+2/4x2"));
+function addToDisplay(element) {
+    display.textContent += element.textContent;
+    element.className === "num-button" ?  enableButtons(operandButtons) : disableButtons(operandButtons);
+}
+
+function disableButtons(btnArr) {
+    btnArr.forEach(btn => btn.disabled = true);
+}
+
+function enableButtons(btnArr) {
+    btnArr.forEach(btn => btn.disabled = false);
+}
+
+numButtons.forEach(btn => btn.addEventListener("click", () => addToDisplay(btn)));
+operandButtons.forEach(btn => btn.addEventListener("click", () => addToDisplay(btn)));
