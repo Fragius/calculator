@@ -52,7 +52,7 @@ function turnStrExpressionToArr(expression) {
     return expressionArr;
 }
 
-function evaluateInOrder(expression) { //: division is multiplication 
+function evaluateInOrder(expression) { //Evaluate in the order of division, and multiplication then addition, and subtraction
     for (let c = 0; c < expression.length; c++) {
     const index = expression.findIndex(item => item.toString().match(/x|\//));
         if (index === -1) {
@@ -74,7 +74,12 @@ function evaluateInOrder(expression) { //: division is multiplication
 
 function evaluate(expression) {
     const expressionArr = turnStrExpressionToArr(expression);
-    return evaluateInOrder(expressionArr)[0].toFixed(3); //Evaluate in the order of division, and multiplication then addition, and subtraction
+    const result = evaluateInOrder(expressionArr)[0].toFixed(3);
+    if (result === "Infinity" || result === "NaN") {
+        return "UNDEFINED";
+    } else  {
+        return result;
+    }
 }
 
 function addToDisplay(element) {
