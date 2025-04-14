@@ -2,7 +2,7 @@ const numButtons = Array.from(document.querySelectorAll(".num-button"));
 const operandButtons = Array.from(document.querySelectorAll(".operation-btn"));
 const display = document.querySelector(".display");
 
-let num1IsAns = false;
+let numIsAns = false;
 
 const TEXT_TO_FUNCTION = {
     "+": add,
@@ -91,14 +91,14 @@ function enableButtons(btnArr) {
 }
 
 numButtons.forEach(btn => btn.addEventListener("click", () => {
-    if (num1IsAns) {
+    if (numIsAns) {
         display.textContent = "";
     }
     addToDisplay(btn);
 }));
 operandButtons.forEach(btn => btn.addEventListener("click", () => {
     addToDisplay(btn);
-    num1IsAns = false;
+    numIsAns = false;
 }));
 
 document.querySelector(".clear").addEventListener("click", () => {
@@ -113,5 +113,5 @@ document.querySelector(".equal").addEventListener("click", () => {
         console.log(error);
         display.textContent ="ERROR"
     }
-    num1IsAns = true;
+    numIsAns = true;
 });
