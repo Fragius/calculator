@@ -87,3 +87,8 @@ function enableButtons(btnArr) {
 
 numButtons.forEach(btn => btn.addEventListener("click", () => addToDisplay(btn)));
 operandButtons.forEach(btn => btn.addEventListener("click", () => addToDisplay(btn)));
+
+document.querySelector(".clear").addEventListener("click", () => {
+    display.textContent = "";
+    enableButtons(operandButtons);
+});
