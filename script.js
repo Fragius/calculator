@@ -92,3 +92,7 @@ document.querySelector(".clear").addEventListener("click", () => {
     display.textContent = "";
     enableButtons(operandButtons);
 });
+
+document.querySelector(".equal").addEventListener("click", () => {
+    display.textContent = evaluate(display.textContent);
+});
