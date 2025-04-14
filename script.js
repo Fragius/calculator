@@ -98,6 +98,7 @@ function enableButtons(btnArr) {
 numButtons.forEach(btn => btn.addEventListener("click", () => {
     if (numIsAns) {
         display.textContent = "";
+        numIsAns = false;
     }
     addToDisplay(btn);
 }));
