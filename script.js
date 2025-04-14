@@ -28,21 +28,16 @@ function divide(num1, num2) {
 }
 
 function operate(expression) {
-    console.log(expression);
     operation = TEXT_TO_FUNCTION[expression[1]];
     return operation(+expression[0], +expression[2]);
 }
 
 function turnStrExpressionToArr(expression) {
     let expressionArr = expression.split("");
-    console.log(expression);
-    console.log(expressionArr);
     let index = 1;
     while (index < expressionArr.length) {
-        console.log("hi")
         const currItem = expressionArr[index];
         const prevItem = expressionArr[index - 1];
-        console.log(currItem, expressionArr, index);
         if (currItem.match(/[0-9]/) && prevItem.match(/[0-9]/)) { //check if both items are numbers
             expressionArr[index - 1] = prevItem + currItem;
             expressionArr.splice(index, 1)
@@ -54,7 +49,6 @@ function turnStrExpressionToArr(expression) {
         expressionArr[0] = expressionArr[0] + expressionArr[1];
         expressionArr.splice(1, 1);
     }
-    console.log(expressionArr);
     return expressionArr;
 }
 
@@ -79,7 +73,6 @@ function evaluateInOrder(expression) { //: division is multiplication
 
 
 function evaluate(expression) {
-    console.log(expression);
     const expressionArr = turnStrExpressionToArr(expression);
     return evaluateInOrder(expressionArr)[0] //Evaluate in the order of division, and multiplication then addition, and subtraction
 }
@@ -99,7 +92,7 @@ function enableButtons(btnArr) {
 
 numButtons.forEach(btn => btn.addEventListener("click", () => {
     if (num1IsAns) {
-        addToDisplay = false;
+        display.textContent = "";
     }
     addToDisplay(btn);
 }));
