@@ -94,5 +94,9 @@ document.querySelector(".clear").addEventListener("click", () => {
 });
 
 document.querySelector(".equal").addEventListener("click", () => {
-    display.textContent = evaluate(display.textContent);
+    try {
+        display.textContent = evaluate(display.textContent);
+    } finally {
+        display.textContent = "ERROR"
+    }
 });
