@@ -33,7 +33,7 @@ function operate(expression) {
 }
 
 function turnStrExpressionToArr(expression) {
-    let expressionArr = expression.split("");
+    let expressionArr = (expression + "+0").split("");
     let index = 1;
     while (index < expressionArr.length) {
         const currItem = expressionArr[index];
