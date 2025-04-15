@@ -83,8 +83,10 @@ function evaluate(expression) {
 }
 
 function addToDisplay(element) {
+    if (display.textContent.length * 16 < display.offsetWidth - 24) {
     display.textContent += element.textContent;
     element.className === "num-button" ?  enableButtons(operandButtons) : disableButtons(operandButtons);
+    }
 }
 
 function disableButtons(btnArr) {
